@@ -4,6 +4,14 @@
   "description": "The Tolt command line: stream your webhooks to localhost, trigger sample events, and talk to the API from your terminal.",
   "license": "MIT",
   "type": "module",
+  "homepage": "https://github.com/toltapp/tolt-cli#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/toltapp/tolt-cli.git"
+  },
+  "bugs": {
+    "url": "https://github.com/toltapp/tolt-cli/issues"
+  },
   "bin": {
     "tolt": "./dist/index.js"
   },
@@ -13,11 +21,15 @@
   "engines": {
     "node": ">=18"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch",
     "typecheck": "tsc --noEmit",
-    "start": "node dist/index.js"
+    "start": "node dist/index.js",
+    "prepublishOnly": "npm run build"
   },
   "dependencies": {
     "commander": "^12.1.0",
