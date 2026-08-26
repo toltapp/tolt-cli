@@ -8,7 +8,6 @@ export type Context = {
   apiUrl: string;
 };
 
-/** Resolve output mode, config, token, and API url; exit cleanly if no token is available. */
 export function requireAuth(opts: GlobalOptions & OutputOptions): Context {
   const mode = resolveMode(opts);
   const config = loadConfig();

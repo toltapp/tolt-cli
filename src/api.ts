@@ -15,10 +15,6 @@ type RequestOptions = {
   query?: Record<string, string | number | undefined>;
 };
 
-/**
- * Call the Tolt v2 API and unwrap the { success, message, data } envelope.
- * Throws ApiError on a non-2xx response or a transport failure.
- */
 export async function api<T = unknown>(path: string, opts: RequestOptions): Promise<T> {
   const url = new URL(`${opts.apiUrl}${path}`);
   for (const [key, value] of Object.entries(opts.query ?? {})) {
@@ -40,11 +36,11 @@ export async function api<T = unknown>(path: string, opts: RequestOptions): Prom
   }
 
   const payload = (await res.json().catch(() => null)) as
-    | { success?: boolean; message?: string; data?: T }
+    | { success?: boolean; message?: string; error?: string; data?: T }
     | null;
 
   if (!res.ok) {
-    throw new ApiError(payload?.message || `${res.status} ${res.statusText}`, res.status);
+    throw new ApiError(payload?.message || payload?.error || `${res.status} ${res.statusText}`, res.status);
   }
   return (payload?.data ?? (payload as unknown)) as T;
 }

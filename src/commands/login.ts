@@ -36,7 +36,6 @@ function promptSecret(question: string): Promise<string> {
   return new Promise((resolve) => {
     const rl = createInterface({ input: process.stdin, output: process.stdout, terminal: true });
     process.stdout.write(question);
-    // Mute the echo so the pasted key is not shown.
     (rl as unknown as { _writeToOutput: (s: string) => void })._writeToOutput = () => {};
     rl.question("", (answer) => {
       rl.close();

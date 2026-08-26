@@ -40,7 +40,6 @@ export function loadConfig(): Config {
 export function saveConfig(config: Config): void {
   mkdirSync(configDir(), { recursive: true });
   writeFileSync(configPath(), `${JSON.stringify(config, null, 2)}\n`, "utf8");
-  // The file holds an API key, so keep it owner-readable only.
   chmodSync(configPath(), 0o600);
 }
 
