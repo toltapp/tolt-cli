@@ -1,0 +1,39 @@
+{
+  "name": "@tolt/cli",
+  "version": "0.1.0",
+  "description": "The Tolt command line: stream your webhooks to localhost, trigger sample events, and talk to the API from your terminal.",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "tolt": "./dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "typecheck": "tsc --noEmit",
+    "start": "node dist/index.js"
+  },
+  "dependencies": {
+    "commander": "^12.1.0",
+    "picocolors": "^1.1.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.9.0",
+    "tsup": "^8.3.5",
+    "typescript": "^5.6.3"
+  },
+  "keywords": [
+    "tolt",
+    "cli",
+    "webhooks",
+    "affiliate",
+    "referral",
+    "listen"
+  ]
+}
