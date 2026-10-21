@@ -2,7 +2,7 @@ import { homedir } from "node:os";
 import { join } from "node:path";
 import { mkdirSync, readFileSync, writeFileSync, chmodSync } from "node:fs";
 
-export const DEFAULT_API_URL = "https://api.tolt.com";
+export const DEFAULT_API_URL = "https://platform.tolt.com";
 
 export type Profile = {
   token?: string;
