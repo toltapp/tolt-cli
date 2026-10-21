@@ -1,6 +1,6 @@
 {
   "name": "@tolt/cli",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "The Tolt command line: stream your webhooks to localhost, trigger sample events, and talk to the API from your terminal.",
   "license": "Apache-2.0",
   "type": "module",
